@@ -1,0 +1,46 @@
+
+@baseUrl = http://localhost:3000/auth
+ ####
+POST {{baseUrl}}/login
+ Content-Type: application/json 
+
+ {
+    "username":"admin",
+    "password":"admin"
+ }  
+###
+POST {{baseUrl}}/login
+ Content-Type: application/json 
+
+ {
+    "username":"user1",
+    "password":"zayz"
+ }  
+
+###
+POST {{baseUrl}}/login
+ Content-Type: application/json 
+
+ {
+    "username":"user2",
+    "password":"zayz"
+ }  
+###
+POST {{baseUrl}}/register
+ Content-Type: application/json 
+
+ {
+    "username":"user3",
+    "password":"zayz"
+ }  
+
+###
+GET {{baseUrl}}/logout
+
+###
+POST {{baseUrl}}/loginAnonyme
+ Content-Type: application/json 
+
+ {
+    "username":"user3"
+ }  
