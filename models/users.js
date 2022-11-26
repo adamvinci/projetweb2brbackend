@@ -11,6 +11,7 @@ const saltRounds = 10;
 
 async function login(username,password){
     const userNameFound=readOneFromUserName(username);
+    console.log(userNameFound)
     if(!userNameFound) return undefined;
     const comparatorPassword= await bcrypt.compare(password,userNameFound.password)
 
@@ -27,6 +28,7 @@ async function login(username,password){
         username:userNameFound.login,
         token,
       };
+      
       return authenticatedUser;
 
 }
@@ -62,6 +64,8 @@ async function createUser(username,password){
 
 function readOneFromUserName(username){
     const users=userQuery.find(username)
+    
+    console.log(users)
     if(!users) return undefined;
     return users;
 }

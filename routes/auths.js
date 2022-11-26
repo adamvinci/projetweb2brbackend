@@ -10,6 +10,7 @@ router.post('/login', async (req, res) => {
  if(!username || !password) return res.sendStatus(400)
   
  const user= await login(username,password);
+ console.log(user)
  if(!user) return res.sendStatus(401);
 
  createCookieSessionData(req, user);

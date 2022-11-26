@@ -9,12 +9,12 @@ POST {{baseUrl}}/login
     "password":"admin"
  }  
 ###
-POST {{baseUrl}}/login
+POST {{baseUrl}}/register
  Content-Type: application/json 
 
  {
     "username":"admin",
-    "password":"admin"
+    "password":"admi"
  }  
 
 ###
@@ -30,8 +30,8 @@ POST {{baseUrl}}/register
  Content-Type: application/json 
 
  {
-    "username":"admin",
-    "password":"admin"
+    "username":"uss",
+    "password":"11"
  }  
 
 ###
@@ -55,8 +55,8 @@ POST http://localhost:3000/message/addMessageUser
 Content-Type: application/json
 
 {
-   "content":"message1",
-   "type":"question"
+   "content":"message3",
+   "type":"suggestion"
 }
 
 ### 
