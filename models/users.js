@@ -9,65 +9,63 @@ const saltRounds = 10;
 
 
 
-async function login(username,password){
-    const userNameFound=readOneFromUserName(username);
-    console.log(userNameFound)
-    if(!userNameFound) return undefined;
-    const comparatorPassword= await bcrypt.compare(password,userNameFound.password)
+async function login(username, password) {
+  const userNameFound = readOneFromUserName(username);
+  console.log(userNameFound)
+  if (!userNameFound) return undefined;
+  const comparatorPassword = await bcrypt.compare(password, userNameFound.password)
 
-    if(!comparatorPassword) return undefined;
-  
-    const token = jwt.sign(
-        { username }, 
-        jwtSecret, 
-        { expiresIn: lifetimeJwt }, 
-      );
-    
-      const authenticatedUser = {
-        id_user:userNameFound.id_user,
-        username:userNameFound.login,
-        token,
-      };
-      
-      return authenticatedUser;
+  if (!comparatorPassword) return undefined;
 
-}
+  const token = jwt.sign(
+    { username },
+    jwtSecret,
+    { expiresIn: lifetimeJwt },
+  );
 
-async function register(username,password){
-    const userNameFound=readOneFromUserName(username);
-    if(userNameFound) return undefined;
-    await createUser(username,password);
+  const authenticatedUser = {
+    id_user: userNameFound.id_user,
+    username: userNameFound.login,
+    token,
+  };
 
-    const token = jwt.sign(
-        { username }, 
-        jwtSecret, 
-        { expiresIn: lifetimeJwt }, 
-      );
-    
-      const authenticatedUser = {
-        username,
-        token,
-      };
-    
-      return authenticatedUser;
-}
-async function createUser(username,password){
-    const hashedPassword=await bcrypt.hash(password,saltRounds);
-    const data={
-      username,
-      password:hashedPassword,
-    }
-    const newUser=userQuery.save(data)
-    return newUser;
+  return authenticatedUser;
 
 }
 
-function readOneFromUserName(username){
-    const users=userQuery.find(username)
-    
-    console.log(users)
-    if(!users) return undefined;
-    return users;
+async function register(username, password) {
+  const userNameFound = readOneFromUserName(username);
+  if (userNameFound) return undefined;
+  await createUser(username, password);
+
+  const token = jwt.sign(
+    { username },
+    jwtSecret,
+    { expiresIn: lifetimeJwt },
+  );
+
+  const authenticatedUser = {
+    username,
+    token,
+  };
+
+  return authenticatedUser;
+}
+async function createUser(username, password) {
+  const hashedPassword = await bcrypt.hash(password, saltRounds);
+  const data = {
+    username,
+    password: hashedPassword,
+  }
+  const newUser = userQuery.save(data)
+  return newUser;
+
 }
 
-module.exports={login,register,readOneFromUserName}
+function readOneFromUserName(username) {
+  const users = userQuery.find(username)
+  if (!users) return undefined;
+  return users;
+}
+
+module.exports = { login, register, readOneFromUserName }
