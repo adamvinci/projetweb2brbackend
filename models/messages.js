@@ -13,3 +13,6 @@ module.exports.saveVisitorMessage=(data)=>{
     stmt.run(data.type,data.content);
   
 }
+
+module.exports.deleteOneFilm=(id) => db.prepare('DELETE FROM messages WHERE id_message = ?').run(id)
+ 

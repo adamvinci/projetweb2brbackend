@@ -31,4 +31,22 @@ router.post('/addMessageVisitor', (req, res) => {
 
 });
 
+router.delete('/:id', (req,res) => {
+  console.log("delete")
+  const idMessage=req?.params?.id
+const message=Message.list(req.session.user_id)
+let del=false;
+
+Array.from(message).forEach(element => {
+  if(element.id_message=idMessage){
+  Message.deleteOneFilm(idMessage)
+del=true;
+  }
+});
+
+    if(!del){return res.sendStatus(401)}
+  
+
+});
+
 module.exports = router;
