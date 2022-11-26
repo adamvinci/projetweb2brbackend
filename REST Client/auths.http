@@ -13,8 +13,8 @@ POST {{baseUrl}}/login
  Content-Type: application/json 
 
  {
-    "username":"user1",
-    "password":"zayz"
+    "username":"admin",
+    "password":"admin"
  }  
 
 ###
@@ -22,7 +22,7 @@ POST {{baseUrl}}/login
  Content-Type: application/json 
 
  {
-    "username":"user2",
+    "username":"user",
     "password":"zayz"
  }  
 ###
@@ -30,12 +30,13 @@ POST {{baseUrl}}/register
  Content-Type: application/json 
 
  {
-    "username":"user3",
-    "password":"zayz"
+    "username":"admin",
+    "password":"admin"
  }  
 
 ###
 GET {{baseUrl}}/logout
+
 
 ###
 POST {{baseUrl}}/loginAnonyme
@@ -44,3 +45,25 @@ POST {{baseUrl}}/loginAnonyme
  {
     "username":"user3"
  }  
+ 
+###
+GET http://localhost:3000/message
+
+
+### 
+POST http://localhost:3000/message/addMessageUser
+Content-Type: application/json
+
+{
+   "content":"message1",
+   "type":"question"
+}
+
+### 
+POST http://localhost:3000/message/addMessageVisitor
+Content-Type: application/json
+
+{
+   "content":"message1",
+   "type":"question"
+}

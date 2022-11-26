@@ -17,12 +17,21 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "better-sqlite3": "^8.0.0",
     "cookie-parser": "~1.4.4",
     "cookie-session": "^2.0.0",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
-    "morgan": "~1.9.1"
+    "knex": "^2.3.0",
+    "morgan": "~1.9.1",
+    "pg": "^8.8.0",
+    "pg-promise": "^10.15.3",
+    "postgres": "^3.3.2",
+    "ramda": "^0.28.0",
+    "sql.js": "^1.8.0",
+    "sqlite3": "^5.1.2"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
@@ -31,5 +40,17 @@
     "nodemon": "^2.0.20",
     "prettier-airbnb-config": "^1.0.0"
   },
-  "author": "e-Baron"
+  "author": "e-Baron",
+  "description": "- Si vous ne l'avez pas fait, vous pouvez cloner le repo associé au boilerplate pour initier votre application : `git clone https://github.com/e-vinci/basic-api-boilerplate.git` ou `git clone https://github.com/e-vinci/basic-api-boilerplate.git nom-de-votre-projet` pour créer votre projet nommé `nom-de-votre-projet`.\r - **package.json** est le fichier de configuration de votre projet. Veuillez le mettre à jour afin de :\r     - donnnez un nom à votre projet & une description ;\r     - vous identifier comme auteur.\r - ⚡ Si vous avez cloné votre projet au sein d'un repo existant, Git ne trackera pas ce nouveau projet ; en effet, Git ne tracque pas des projets Git dans des projets Git.\r Pour vous assurer que Git traque votre nouveau projet imbriqué dans un repo, vous devez effacer le répertoire **.git** se trouvant dans votre nouveau projet. N'hésitez pas aussi à effacer **.gitignore** se trouvant dans votre nouveau projet.\r - Par contre, si vous souhaitez créer un nouveau repo à l'aide de votre boilerplate, \r vous pouvez utiliser le **.gitignore** existant. Vous pouvez aussi éventuellement utiliser le \r **.git**, mais cela signifie que vous hériterez de tous les changements associés au boilerplate, \r et que vous devrez changer l'origine (`git remote remove origin`, `git remote add origin LINK_TO_YOUR_REPO`). Nous vous recommandons plutôt d'effacer le répertoire **.git** et de \r réinitialiser un projet git (`git init`, `git remote add origin LINK_TO_YOUR_REPO`).\r - Installation des dépendances et démarrage du boilerplate : \r ```shell\r cd nom-de-votre-projet # (le nom donné au répertoire de votre projet)\r npm i # (equivalent de npm install)\r npm start\r ```",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamvinci/projetweb2brbackend.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamvinci/projetweb2brbackend/issues"
+  },
+  "homepage": "https://github.com/adamvinci/projetweb2brbackend#readme"
 }

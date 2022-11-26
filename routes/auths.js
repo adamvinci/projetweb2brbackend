@@ -11,7 +11,7 @@ router.post('/login', async (req, res) => {
   
  const user= await login(username,password);
  if(!user) return res.sendStatus(401);
- 
+
  createCookieSessionData(req, user);
 
   return res.json({ username: user.username });
@@ -45,5 +45,6 @@ router.get('/logout', (req, res) => {
   function createCookieSessionData(req, authenticatedUser) {
     req.session.username = authenticatedUser.username;
     req.session.token = authenticatedUser.token;
+    req.session.user_id=authenticatedUser.id_user
   }
 module.exports = router;
